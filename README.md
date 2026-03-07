@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # My Portfolio
 
 A modern React front-end application built with Vite and TypeScript.
@@ -79,3 +80,7 @@ tsconfig.json       # TypeScript configuration
 - 📦 TypeScript support
 - 🎨 Modern CSS styling
 - ✅ ESLint for code quality
+=======
+# My-portfolio-
+This repository contains my portfolio webapp
+>>>>>>> d2624ed3b1a49b1a7de3b7640a4df4e1b0f824ab
