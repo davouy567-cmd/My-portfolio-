@@ -3,8 +3,29 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  isolation: isolate;
+  padding-bottom: 4rem;
 }
 
-* {
-  box-sizing: border-box;
+.app::before,
+.app::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.app::before {
+  background: radial-gradient(1200px circle at 20% 15%, rgba(94, 240, 255, 0.09), transparent 40%),
+              radial-gradient(900px circle at 80% 10%, rgba(255, 95, 162, 0.08), transparent 35%);
+  filter: blur(20px);
+}
+
+.app::after {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 40%),
+              linear-gradient(-120deg, rgba(255, 255, 255, 0.03), transparent 35%);
+  opacity: 0.35;
 }

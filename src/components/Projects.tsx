@@ -1,5 +1,8 @@
 import './Projects.css'
 import gamesImage from '../images/knowrist.jpeg'
+import smartCityImage from '../images/jos.jpg'
+import ticketImage from '../images/ticket.jpg'
+import afreshImage from '../images/afresh.jpg'
 
 interface Project {
   id: number
@@ -20,7 +23,7 @@ export default function Projects({
       title: 'Smart City Project',
       description: 'An intelligent city management system built with React and TypeScript featuring real-time data visualization and IoT device integration.',
       link: 'https://joscity.com',
-      image: undefined
+      image: smartCityImage
     },
     {
       id: 2,
@@ -34,7 +37,14 @@ export default function Projects({
       title: 'Tickets',
       description: 'A comprehensive ticketing system built with React that streamlines booking and reservation management with an intuitive user interface.',
       link: 'https://gatewav.com',
-      image: undefined
+      image: ticketImage
+    },
+    {
+      id: 4,
+      title: 'AfrESH Center',
+      description: 'A vibrant wellness and events hub landing page highlighting programs, bookings, and community stories with immersive visuals.',
+      link: '#',
+      image: afreshImage
     },
   ]
 }: ProjectsProps) {
