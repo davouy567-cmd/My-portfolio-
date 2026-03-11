@@ -1,5 +1,5 @@
 import './Projects.css'
-import gamesImage from '../images/knowrist.jpeg'
+import gamesImage from '../images/knowrist.jpg'
 import smartCityImage from '../images/jos.jpg'
 import ticketImage from '../images/ticket.jpg'
 import afreshImage from '../images/afresh.jpg'
@@ -66,7 +66,7 @@ export default function Projects({
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
-                <a href={project.link || '#'} className="project-link">View Project →</a>
+                <a href={project.link || '#'} className="project-link">View Project</a>
               </div>
             </div>
           ))}
@@ -79,3 +79,4 @@ export default function Projects({
     </section>
   )
 }
+
