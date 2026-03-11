@@ -6,7 +6,6 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  backdrop-filter: blur(14px);
 }
 
 .header-container {
@@ -16,25 +15,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
   border-radius: 18px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--stroke);
+  box-shadow: 0 10px 45px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   position: relative;
   overflow: hidden;
   transform: perspective(1200px) translateZ(0);
   transition: all 0.4s ease;
-}
-
-.header-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 10% 20%, rgba(94, 240, 255, 0.35), transparent 35%),
-              radial-gradient(circle at 80% 0%, rgba(255, 95, 162, 0.28), transparent 30%);
-  opacity: 0.6;
-  filter: blur(20px);
-  transform: translateZ(-1px);
 }
 
 .header-container:hover {
@@ -63,6 +53,99 @@
   display: flex;
   gap: 1.2rem;
   align-items: center;
+}
+
+.nav.open {
+  display: flex;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e7ecf7;
+  background: none;
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-toggle:hover {
+  border-color: rgba(94, 240, 255, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+  color: #b6e8ff;
+}
+
+.menu-icon {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: #e7ecf7;
+  border-radius: 2px;
+  transition: background 0.25s ease;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: #e7ecf7;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
+.menu-toggle.open .menu-icon {
+  background: transparent;
+}
+
+.menu-toggle.open .menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open .menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.menu-text {
+  font-size: 0.95rem;
+}
+
+.close-menu-btn {
+  display: none;
+  align-self: flex-end;
+  background: none;
+  border: 1px solid var(--stroke);
+  color: #e7ecf7;
+  font-size: 1.2rem;
+  line-height: 1;
+  border-radius: 10px;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.close-menu-btn:hover {
+  border-color: rgba(94, 240, 255, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+  color: #b6e8ff;
 }
 
 .nav-link {
@@ -116,15 +199,53 @@
 
 @media (max-width: 900px) {
   .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    overflow: visible;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .nav {
-    width: 100%;
-    flex-wrap: wrap;
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 1rem;
+    right: 1rem;
+    flex-direction: column;
     gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(16, 20, 30, 0.78);
+    backdrop-filter: blur(14px) saturate(150%);
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 1;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .close-menu-btn {
+    display: inline-flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: left;
+  }
+
+  .projects-btn {
+    width: 100%;
+    text-align: center;
   }
 
   .logo h1 {

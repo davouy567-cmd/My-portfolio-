@@ -9,7 +9,7 @@ interface ContactCTAProps {
 export default function ContactCTA({ 
   title = "Let's Work Together",
   subtitle = "Have an exciting project in mind? I'd love to hear from you!",
-  email = "your.email@example.com"
+  email = "davidchuks2550@gmail.com"
 }: ContactCTAProps) {
   return (
     <section className="contact-cta" id="contact">

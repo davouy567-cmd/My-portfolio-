@@ -27,9 +27,9 @@ function App() {
       <Skills />
       <Motivation />
       <Projects />
-      <ContactCTA email="your.email@example.com" />
+      <ContactCTA email="davidchuks2550@gmail.com" />
       <Footer 
-        email="your.email@example.com"
+        email="davidchuks2550@gmail.com"
         github="https://github.com"
         linkedin="https://linkedin.com"
         twitter="https://twitter.com"
